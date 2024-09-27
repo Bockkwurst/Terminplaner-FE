@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.input-card {
+  margin: 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #c6d9ff;
+  height: 50rem;
+  width: 30rem;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px lightgray;
+}
+
+.head {
+  font-family: "Lucida Console", "Roboto Light";
+  font-size: 1.8rem;
+  text-decoration: underline;
+}
+
+.title-label {
+  margin-bottom: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.date-picker {
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-container {
+  margin-bottom: 1.5rem;
+}
+
+.checkbox {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=input-field.component.css.map */
