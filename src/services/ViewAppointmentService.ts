@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Appointment } from "../models/appointment";
-import {Observable} from "rxjs";
+import {Injectable} from "@angular/core";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {Appointment} from "../models/appointment";
+import {catchError, Observable, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,25 @@ export class ViewAppointmentService {
     return this.http.get<Appointment[]>(`${this.appointmentUrl}/all`);
   }
 
-  searchAppointment(title: string): Observable<any> {
-    return this.http.get(`${this.appointmentUrl}/${title}`)
+  searchAppointment(title: string): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(`${this.appointmentUrl}/search/${title}`)
   }
+
+  public getAppointmentById(id: string): Observable<Appointment> {
+    const url = `${this.appointmentUrl}/${id}`;
+    return this.http.get<Appointment>(url);
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+      console.error(`Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    return throwError(() => new Error('Something bad happened; please try again later.'));
+  }
+
+
 }
+

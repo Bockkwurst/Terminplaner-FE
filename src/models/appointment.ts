@@ -1,19 +1,19 @@
 export class Appointment {
-  Id: string;
-  Title: string;
-  StartDate: Date;
-  EndDate: Date;
-  AllDay: boolean;
-  Color: string;
-  SecondaryColor: string;
+  id: string;
+  title: string;
+  startDate: Date;
+  endDate: Date;
+  allDay: boolean;
+  color: string;
+  secondaryColor: string;
 
   constructor() {
-    this.Id = '';
-    this.Title = '';
-    this.StartDate = new Date;
-    this.EndDate = new Date;
-    this.AllDay = false;
-    this.Color = '';
-    this.SecondaryColor = '';
+    this.id = '';
+    this.title = '';
+    this.startDate = new Date;
+    this.endDate = new Date;
+    this.allDay = false;
+    this.color = '';
+    this.secondaryColor = '';
   }
 }

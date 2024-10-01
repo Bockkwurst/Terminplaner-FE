@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {InputFieldComponent} from "../components/input-field/input-field.component";
-import {ColorPickerModule} from "ngx-color-picker";
 import {NavbarComponent} from "../components/navbar/navbar.component";
 
 @Component({
@@ -9,7 +8,7 @@ import {NavbarComponent} from "../components/navbar/navbar.component";
   standalone: true,
   imports: [RouterOutlet,
     InputFieldComponent,
-    ColorPickerModule, NavbarComponent],
+    NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

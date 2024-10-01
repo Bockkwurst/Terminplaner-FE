@@ -28,6 +28,7 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrl: 'input-field.component.scss'
 })
 export class InputFieldComponent {
+
   range = new FormGroup({
     start: new FormControl(),
     end: new FormControl()
@@ -37,13 +38,13 @@ export class InputFieldComponent {
   selectedSecondaryColor: string = '';
 
   appointment: Appointment = {
-    Id: '',
-    Title: '',
-    StartDate: new Date(),
-    EndDate: new Date(),
-    AllDay: false,
-    Color: '',
-    SecondaryColor: ''
+    id: '',
+    title: '',
+    startDate: new Date(),
+    endDate: new Date(),
+    allDay: false,
+    color: '',
+    secondaryColor: ''
   };
 
   constructor(
@@ -58,12 +59,19 @@ export class InputFieldComponent {
   }
 
   onSubmit() {
-    this.appointment.Title = (document.getElementById('title') as HTMLInputElement).value;
-    this.appointment.StartDate = this.range.value.start;
-    this.appointment.EndDate = this.range.value.end;
-    this.appointment.AllDay = (document.querySelector('.checkbox input') as HTMLInputElement).checked;
-    this.appointment.Color = this.selectedColor;
-    this.appointment.SecondaryColor = this.selectedSecondaryColor;
+    this.appointment.title = (document.getElementById('title') as HTMLInputElement).value;
+    this.appointment.startDate = this.range.value.start;
+    this.appointment.endDate = this.range.value.end;
+
+    const checkboxElement = document.querySelector('.checkbox') as HTMLInputElement;
+    if (checkboxElement) {
+      this.appointment.allDay = checkboxElement.checked;
+    } else {
+      console.error('Checkbox element not found');
+    }
+
+    this.appointment.color = this.selectedColor;
+    this.appointment.secondaryColor = this.selectedSecondaryColor;
 
     this.createAppointmentService.save(this.appointment).subscribe(result =>
       this.router.navigate(['/home'])

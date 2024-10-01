@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -8,10 +8,14 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './color-picker.component.html',
   styleUrls: ['./color-picker.component.scss']
 })
-export class ColorPickerComponent {
-  color: string = '#127bdc';
-  secondaryColor: string = this.lightenColor(this.color, 20);
+export class ColorPickerComponent implements OnInit{
+  @Input() color: string = '#127bdc';
+  @Input() secondaryColor: string = '';
   @Output() colorChange = new EventEmitter<{ primary: string, secondary: string }>();
+
+  ngOnInit() {
+    this.secondaryColor = this.lightenColor(this.color, 20);
+  }
 
   onColorChange(event: Event) {
     this.color = (event.target as HTMLInputElement).value;

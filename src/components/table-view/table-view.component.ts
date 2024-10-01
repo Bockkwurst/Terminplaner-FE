@@ -6,6 +6,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
 import { ViewAppointmentService } from "../../services/ViewAppointmentService";
 import { Appointment } from "../../models/appointment";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-table-view',
@@ -21,15 +22,14 @@ import { Appointment } from "../../models/appointment";
   styleUrls: ['./table-view.component.scss']
 })
 export class TableViewComponent implements OnInit {
-  displayedColumns: string[] = ['Title', 'StartDate', 'EndDate', 'AllDay'];
+  displayedColumns: string[] = ['Color', 'Title', 'StartDate', 'EndDate', 'AllDay'];
   dataSource: Appointment[] = [];
   searchTerm: string = '';
 
-  constructor(private appointmentService: ViewAppointmentService) {}
+  constructor(private appointmentService: ViewAppointmentService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAppointmentData();
-    console.log("Error");
   }
 
   getAppointmentData(): void {
@@ -44,7 +44,11 @@ export class TableViewComponent implements OnInit {
     });
   }
 
-  navigateToDetails(Id: any) {
-    // Implement navigation logic here
+  navigateToDetails(id: string) {
+    if (id) {
+      this.router.navigate(['/details', id]);
+    } else {
+      console.error('Invalid appointment ID');
+    }
   }
 }

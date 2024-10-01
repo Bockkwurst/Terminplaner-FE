@@ -1,1 +1,40 @@
-<p>details-view works!</p>
+<div class="input-card">
+  <div class="head-container">
+    <h2 class="head">Termin Details</h2>
+  </div>
+  <div class="title">
+    <label class="title-label" for="title">Titel</label>
+    <div class="title-input">
+      <input type="text" class="title-input" id="title" name="title" placeholder="Titel" [formControl]="titleControl">
+    </div>
+  </div>
+  <div class="date-picker">
+    <mat-form-field class="date-picker">
+      <mat-label>Start- und Enddatum eingeben</mat-label>
+      <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date">
+        <input matEndDate formControlName="end" placeholder="End date">
+      </mat-date-range-input>
+
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+
+      <mat-error *ngIf="range.controls['start'].hasError('required')">Invalid start date</mat-error>
+      <mat-error *ngIf="range.errors?.['dateRange']">Invalid end date</mat-error>
+    </mat-form-field>
+    <div>
+
+    </div>
+  </div>
+  <div class="checkbox-container">
+    <label class="checkbox-label">Ganztägig</label>
+    <input class="checkbox" type="checkbox" [formControl]="allDayControl">
+  </div>
+  <div class="color-picker-container">
+    <app-color-picker [color]="selectedColor" (colorChange)="onColorChange($event)"></app-color-picker>
+  </div>
+  <button mat-raised-button type="submit" (click)="onSubmit()" [disabled]="isLoading">Speichern</button>
+  <button mat-raised-button type="button" color="warn" (click)="onDelete()">Löschen</button>
+  <button mat-raised-button type="button" (click)="onBack()">Zurück</button>
+</div>
