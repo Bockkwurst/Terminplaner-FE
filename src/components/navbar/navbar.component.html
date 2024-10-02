@@ -2,16 +2,21 @@
   <ul class="navbar">
     <div class="navbar-title-container">
     <li>
-      <a routerLink="/home" class="navbar-title">Terminplaner</a>
+      <a routerLink="/table-view" class="navbar-title">Terminplaner</a>
     </li>
     </div>
     <div class="nav-link-container">
+      <mat-button-toggle-group name="fontStyle" aria-label="View Toggle" (change)="onToggleChange($event)">
+        <mat-button-toggle value="table" [checked]="isTableView">Table</mat-button-toggle>
+        <mat-button-toggle value="calendar" [checked]="!isTableView">Calendar</mat-button-toggle>
+      </mat-button-toggle-group>
       <li>
         <a routerLink="/create" class="nav-link">Erstellen</a>
       </li>
       <li>
-        <a routerLink="/home" class="nav-link">Dashboard</a>
+        <a routerLink="/table-view" class="nav-link">Dashboard</a>
       </li>
     </div>
   </ul>
 </nav>
+<router-outlet></router-outlet>
