@@ -1,9 +1,27 @@
 <div class="calendar-view-container">
-  <div class="appointment-headline">
-    <h1>Alle Termine auf einem Blick</h1>
+  <div class="option-selection">
+    <div class="month-button-group">
+      <button mat-raised-button (click)="goToPreviousMonth()">Letzter Monat</button>
+      <button mat-raised-button (click)="goToToday()">Heute</button>
+      <button mat-raised-button (click)="goToNextMonth()">Nächster Monat</button>
+    </div>
+    <div class="month-view">
+      <h3>{{ getFormattedDate() }}</h3>
+    </div>
   </div>
   <mwl-calendar-month-view
     [viewDate]="viewDate"
-    [events]="events">
+    [events]="events"
+    (eventClicked)="handleDayClick($event.event)">
   </mwl-calendar-month-view>
+
+  <div *ngIf="selectedDay" class="event-details" [style.background-color]="selectedDay.color?.secondary" (click)="handleEventClick(selectedDay?.id)">
+    <h3>Event Details</h3>
+    <p>Id: {{ selectedDay.id }}</p>
+    <p>Title: {{ selectedDay.title }}</p>
+    <p>Start: {{ selectedDay.start | date: 'short' }}</p>
+    <p>End: {{ selectedDay.end | date: 'short' }}</p>
+    <p>All Day: {{ selectedDay.allDay ? 'Yes' : 'No' }}</p>
+    <p>Color: {{ selectedDay.color?.primary }}</p>
+  </div>
 </div>

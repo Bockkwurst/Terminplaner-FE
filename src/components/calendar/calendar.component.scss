@@ -1,0 +1,30 @@
+.calendar-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:30px 20px 0 20px;
+}
+
+.option-selection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.month-button-group {
+  margin: 15px;
+}
+
+.view-button-group {
+  margin: 15px;
+}
+
+.event-details {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}

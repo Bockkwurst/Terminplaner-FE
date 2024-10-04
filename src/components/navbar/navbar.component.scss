@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .nav-link {
@@ -28,7 +28,18 @@
 
 .navbar-title-container {
   display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.link-container {
+  display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
 }
+
+.toggle {
+  margin: 5px 0 5px 0;
+}
+
+
