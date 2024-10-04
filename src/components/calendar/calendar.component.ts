@@ -1,20 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {CalendarEvent, CalendarModule, DateAdapter} from "angular-calendar";
+import {CalendarEvent, CalendarModule, CalendarUtils, CalendarA11y} from "angular-calendar";
 import {CommonModule} from "@angular/common";
 import {CalendarView} from "@angular/material/datepicker/testing";
 import {ViewAppointmentService} from "../../services/ViewAppointmentService";
 import {Appointment} from "../../models/appointment";
-import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
 
 @Component({
   selector: 'app-calendar',
   standalone: true,
   imports: [
     CommonModule,
-    CalendarModule.forRoot({
-      provide: DateAdapter,
-      useFactory: adapterFactory,
-    }),
+    CalendarModule
   ],
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
@@ -25,7 +21,9 @@ export class CalendarComponent implements OnInit{
   events: CalendarEvent[] = [];
 
   constructor(
-    private appointmentService: ViewAppointmentService) {}
+    private appointmentService: ViewAppointmentService,
+    private calendarUtils: CalendarUtils,
+    private calendarA11ly: CalendarA11y) {}
 
   ngOnInit(): void {
     this.loadAppointments();
