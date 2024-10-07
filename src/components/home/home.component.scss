@@ -5,7 +5,7 @@
   height: 100vh;
 }
 
-.input-card {
+.home-container {
   margin: 0;
   padding: 15px;
   display: flex;
@@ -19,28 +19,26 @@
   box-shadow: 3px 3px 3px 3px lightgray;
 }
 
-.head {
+img {
+  width: 200px;
+  height: 200px;
+}
+
+h3 {
   font-family: "Lucida Console", "Roboto Light";
   font-size: 1.8rem;
   text-decoration: underline;
 }
 
-.title {
+.home-title {
+  align-items: center;
+  justify-content: center;
 }
 
-.title-label {
-  margin-bottom: 1.5rem;
-  margin-right: 1.5rem;
-}
-
-.date-picker{
-  margin-bottom: 1.5rem;
-}
-
-.checkbox-container{
-  margin-bottom: 1.5rem;
-}
-
-.checkbox {
-  cursor: pointer;
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
 }

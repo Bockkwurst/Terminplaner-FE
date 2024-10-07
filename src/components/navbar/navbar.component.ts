@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {MatButtonToggle, MatButtonToggleChange, MatButtonToggleGroup} from "@angular/material/button-toggle";
+import {AuthService} from "../../services/Auth.service";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +11,8 @@ import {MatButtonToggle, MatButtonToggleChange, MatButtonToggleGroup} from "@ang
     RouterLink,
     RouterOutlet,
     MatButtonToggleGroup,
-    MatButtonToggle
+    MatButtonToggle,
+    NgIf
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
@@ -17,7 +20,9 @@ import {MatButtonToggle, MatButtonToggleChange, MatButtonToggleGroup} from "@ang
 export class NavbarComponent {
   isTableView: boolean = true;
 
-  constructor(public router: Router) {
+  constructor(
+    public router: Router,
+    public authService: AuthService) {
   }
 
   onToggleChange(event: MatButtonToggleChange) {
@@ -27,5 +32,10 @@ export class NavbarComponent {
     } else {
       this.router.navigate(['/calendar']);
     }
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/home']);
   }
 }
