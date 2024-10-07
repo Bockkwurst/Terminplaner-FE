@@ -25,8 +25,7 @@ import {MatSort, MatSortModule} from "@angular/material/sort";
 })
 export class TableViewComponent implements OnInit {
   displayedColumns: string[] = ['Color', 'Title', 'StartDate', 'EndDate', 'AllDay'];
-  dataSource: MatTableDataSource<Appointment> = new MatTableDataSource();
-  searchTerm: string = '';
+  dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -36,17 +35,11 @@ export class TableViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAppointmentData();
+    this.dataSource.sort = this.sort;
   }
 
   getAppointmentData(): void {
     this.appointmentService.getData().subscribe(data => {
-      this.dataSource.data = data;
-      this.dataSource.sort = this.sort;
-    });
-  }
-
-  search() {
-    this.appointmentService.searchAppointment(this.searchTerm).subscribe(data => {
       this.dataSource.data = data;
       this.dataSource.sort = this.sort;
     });
