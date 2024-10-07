@@ -5,3 +5,10 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
+body {
+  background-image: url("assets/blurry-gradient.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

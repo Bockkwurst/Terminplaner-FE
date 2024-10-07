@@ -1,15 +1,7 @@
 <div class="appointment-view-container">
-  <div class="appointment-headline">
+  <div>
     <h1>Alle Termine auf einem Blick</h1>
   </div>
-  <form class="appointment-view-search" (submit)="search()">
-    <div class="searchbar">
-      <input type="search" name="searchTerm" [(ngModel)]="searchTerm" placeholder="Search" />
-      <button mat-mini-fab aria-label="Search Button">
-        <mat-icon>search</mat-icon>
-      </button>
-    </div>
-  </form>
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="Color">

@@ -1,7 +1,7 @@
 .navbar {
   margin: 0;
   list-style: none;
-  background-color: #c4d7fd;
+  background-image: linear-gradient(to right, rgba(196, 215, 253, 0), rgba(196, 215, 253, 0), rgba(196, 215, 253, 1));
 }
 
 .nav-link-container{
@@ -40,6 +40,9 @@
 
 .toggle {
   margin: 5px 0 5px 0;
+  box-shadow: 3px 3px 3px 3px lightgray;
 }
 
-
+.nav-link:hover {
+  background-color: #a9c4f2;
+}
