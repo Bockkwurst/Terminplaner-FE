@@ -3,6 +3,9 @@
   list-style: none;
   background-image: linear-gradient(to right, rgba(196, 215, 253, 0), rgba(196, 215, 253, 0), rgba(196, 215, 253, 1));
   height: 55px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 2px 2px 10px 2px lightgray;
 }
 
 .nav-link-container{
@@ -20,7 +23,7 @@
 }
 
 .navbar-title {
-  margin: 0 1.5rem 0 1.5rem;
+  height: 50px;
   text-decoration: none;
   font-family: "Lucida Console", Roboto;
   font-size: 25px;

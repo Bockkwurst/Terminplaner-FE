@@ -27,6 +27,12 @@
       }
     </mat-form-field>
   </div>
+  <div class="time-picker">
+    <label class="time-label" for="startTime">Startzeit</label>
+    <input type="time" class="time-input start-time" id="startTime" name="time" placeholder="Startzeit" [value]="appointment.startTime">
+    <label class="time-label" for="endTime">Endzeit</label>
+    <input type="time" class="time-input end-time" id="endTime" name="time" placeholder="Endzeit" [value]="appointment.endTime">
+  </div>
     <div class="checkbox-container">
       <label class="checkbox-label">Ganztägig</label>
       <input class="checkbox" type="checkbox" [checked]="appointment.allDay">

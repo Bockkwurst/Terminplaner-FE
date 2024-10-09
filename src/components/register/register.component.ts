@@ -18,9 +18,10 @@ import {RegisterService} from "../../services/register.service";
 export class RegisterComponent {
 
   user: User = {
-    id: '',
+    userId: '',
     username: '',
-    password: ''
+    password: '',
+    appointments: []
   }
 
   constructor(

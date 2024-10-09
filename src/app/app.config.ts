@@ -9,9 +9,11 @@ import {
 } from 'angular-calendar';
 import {routes} from './app.routes';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
-import {provideHttpClient} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, provideHttpClient} from "@angular/common/http";
 import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
 import {I18nPluralPipe} from "@angular/common";
+import {JwtInterceptor} from "../services/jwt-interceptor.service";
+import {AuthService} from "../services/Auth.service";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,5 +27,6 @@ export const appConfig: ApplicationConfig = {
     {provide: DateAdapter, useFactory: adapterFactory},
     CalendarDateFormatter,
     CalendarEventTitleFormatter,
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, deps: [AuthService], multi: true},
   ]
 };

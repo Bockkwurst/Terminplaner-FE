@@ -1,0 +1,32 @@
+.register-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10vh 30px 50px auto;
+  height: 70vh;
+  width: 50vw;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px lightgray;
+}
+
+h1 {
+  font-family: "Lucida Console", Roboto;
+  font-size: 3rem;
+  text-align: center;
+  margin: 0 0 20px 0;
+  text-shadow: gray 2px 2px 2px;
+  text-decoration: underline;
+}
+
+.username-container, .password-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px 0 10px 0;
+  font-family: "Lucida Console", "Roboto Light";
+}

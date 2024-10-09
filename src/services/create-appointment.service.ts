@@ -10,7 +10,7 @@ export class CreateAppointmentService {
   private appointmentUrl: string;
 
   constructor(private http: HttpClient) {
-    this.appointmentUrl = 'http://localhost:5056/api/appointment';
+    this.appointmentUrl = 'http://localhost:5056/api/appointment/create';
   }
 
   public save(appointment: Appointment) {

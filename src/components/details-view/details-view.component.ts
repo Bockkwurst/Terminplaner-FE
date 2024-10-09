@@ -12,6 +12,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { CommonModule } from "@angular/common";
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-details-view',
@@ -47,9 +48,12 @@ export class DetailsViewComponent implements OnInit {
     title: '',
     startDate: new Date(),
     endDate: new Date(),
+    startTime: '',
+    endTime: '',
     allDay: false,
     color: '',
-    secondaryColor: ''
+    secondaryColor: '',
+    userId: ''
   };
 
   isLoading = true;

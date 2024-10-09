@@ -10,6 +10,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {CreateAppointmentService} from "../../services/create-appointment.service";
 import {Appointment} from "../../models/appointment";
 import {ActivatedRoute, Router} from "@angular/router";
+import {User} from "../../models/user";
+import {AuthService} from "../../services/Auth.service";
 
 @Component({
   selector: 'app-input-field',
@@ -42,15 +44,19 @@ export class InputFieldComponent {
     title: '',
     startDate: new Date(),
     endDate: new Date(),
+    startTime: '',
+    endTime: '',
     allDay: false,
     color: '',
-    secondaryColor: ''
+    secondaryColor: '',
+    userId: ''
   };
 
   constructor(
     private createAppointmentService: CreateAppointmentService,
     private router: Router,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private authService: AuthService) {
   }
 
   onColorChange(color: { primary: string, secondary: string }){
@@ -63,6 +69,9 @@ export class InputFieldComponent {
     this.appointment.startDate = this.range.value.start;
     this.appointment.endDate = this.range.value.end;
 
+    this.appointment.startTime = (document.getElementById('startTime') as HTMLInputElement).value;
+    this.appointment.endTime = (document.getElementById('endTime') as HTMLInputElement).value;
+
     const checkboxElement = document.querySelector('.checkbox') as HTMLInputElement;
     if (checkboxElement) {
       this.appointment.allDay = checkboxElement.checked;
@@ -72,6 +81,15 @@ export class InputFieldComponent {
 
     this.appointment.color = this.selectedColor;
     this.appointment.secondaryColor = this.selectedSecondaryColor;
+
+    const userGuid = this.authService.getUserId();
+    if (userGuid) {
+      this.appointment.userId = userGuid;
+    } else {
+      console.error('userGuid not found');
+    }
+
+    delete this.appointment.id;
 
     this.createAppointmentService.save(this.appointment).subscribe(result =>
       this.router.navigate(['/home'])

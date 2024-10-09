@@ -19,9 +19,10 @@ import {FormsModule} from "@angular/forms";
 export class LoginComponent {
 
   user: User = {
-    id: '',
+    userId: '',
     username: '',
-    password: ''
+    password: '',
+    appointments: []
   }
 
   constructor(
