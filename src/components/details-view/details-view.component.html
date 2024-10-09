@@ -23,8 +23,13 @@
       <mat-error *ngIf="range.controls['start'].hasError('required')">Invalid start date</mat-error>
       <mat-error *ngIf="range.errors?.['dateRange']">Invalid end date</mat-error>
     </mat-form-field>
-    <div>
-
+    <div class="time-picker">
+      <label class="time-label" for="startTime">Startzeit</label>
+      <input type="time" class="time-input start-time" id="startTime" name="time" placeholder="Startzeit"
+             [value]="appointment.startTime">
+      <label class="time-label" for="endTime">Endzeit</label>
+      <input type="time" class="time-input end-time" id="endTime" name="time" placeholder="Endzeit"
+             [value]="appointment.endTime">
     </div>
   </div>
   <div class="checkbox-container">
@@ -34,7 +39,9 @@
   <div class="color-picker-container">
     <app-color-picker [color]="selectedColor" (colorChange)="onColorChange($event)"></app-color-picker>
   </div>
-  <button mat-raised-button type="submit" (click)="onSubmit()" [disabled]="isLoading">Speichern</button>
-  <button mat-raised-button type="button" color="warn" (click)="onDelete()">Löschen</button>
-  <button mat-raised-button type="button" (click)="onBack()">Zurück</button>
+  <div class="button-container">
+    <button mat-raised-button type="submit" (click)="onSubmit()" [disabled]="isLoading">Speichern</button>
+    <button mat-raised-button type="button" color="warn" (click)="onDelete()">Löschen</button>
+    <button mat-raised-button type="button" (click)="onBack()">Zurück</button>
+  </div>
 </div>

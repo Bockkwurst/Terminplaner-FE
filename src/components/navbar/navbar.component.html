@@ -3,7 +3,10 @@
     <div class="nav-link-container">
       <div class="navbar-title-container">
         <li>
-          <a routerLink="/home">
+          <a *ngIf="!authService.isAuthenticated()" routerLink="/home">
+            <img src="Scheduler.png" class="navbar-title" alt="logo" />
+          </a>
+          <a *ngIf="authService.isAuthenticated()" routerLink="/table-view">
             <img src="Scheduler.png" class="navbar-title" alt="logo" />
           </a>
         </li>

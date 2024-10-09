@@ -27,14 +27,15 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
-  box-shadow: 3px 3px 3px 3px lightgray;
+  box-shadow: 3px 3px 10px 3px gray;
 }
 
 .calendar-view {
-  box-shadow: 3px 3px 3px 3px lightgray;
+  box-shadow: 3px 3px 10px 3px gray;
 }
 
 h3 {
   font-family: "Lucida Console", "Roboto Light";
   text-decoration: underline;
+  text-shadow: 1px 1px 1px gray;
 }

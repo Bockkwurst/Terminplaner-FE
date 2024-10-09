@@ -5,8 +5,8 @@
     </h2>
   </div>
   <div class="title">
-  <label class="title-label" for="title">Titel</label>
-  <input type="text" class="title-input" id="title" name="title" placeholder="Titel" [value]="appointment.title">
+    <label class="title-label" for="title">Titel</label>
+    <input type="text" class="title-input" id="title" name="title" placeholder="Titel" [value]="appointment.title">
   </div>
   <div class="date-picker">
     <mat-form-field class="date-picker">
@@ -28,17 +28,19 @@
     </mat-form-field>
   </div>
   <div class="time-picker">
-    <label class="time-label" for="startTime">Startzeit</label>
-    <input type="time" class="time-input start-time" id="startTime" name="time" placeholder="Startzeit" [value]="appointment.startTime">
-    <label class="time-label" for="endTime">Endzeit</label>
-    <input type="time" class="time-input end-time" id="endTime" name="time" placeholder="Endzeit" [value]="appointment.endTime">
+      <label class="time-label" for="startTime">Startzeit</label>
+      <input type="time" class="time-input start-time" id="startTime" name="time" placeholder="Startzeit"
+             [value]="appointment.startTime">
+      <label class="time-label" for="endTime">Endzeit</label>
+      <input type="time" class="time-input end-time" id="endTime" name="time" placeholder="Endzeit"
+             [value]="appointment.endTime">
   </div>
-    <div class="checkbox-container">
-      <label class="checkbox-label">Ganztägig</label>
-      <input class="checkbox" type="checkbox" [checked]="appointment.allDay">
-    </div>
-    <div class="color-picker-container">
-      <app-color-picker (colorChange)="onColorChange($event)"></app-color-picker>
-    </div>
-      <button mat-raised-button type="submit" (click)="onSubmit()">Speichern</button>
+  <div class="checkbox-container">
+    <label class="checkbox-label">Ganztägig</label>
+    <input class="checkbox" type="checkbox" [checked]="appointment.allDay">
+  </div>
+  <div class="color-picker-container">
+    <app-color-picker (colorChange)="onColorChange($event)"></app-color-picker>
+  </div>
+  <button mat-raised-button type="submit" (click)="onSubmit()">Speichern</button>
 </div>
