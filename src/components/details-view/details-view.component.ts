@@ -12,7 +12,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { CommonModule } from "@angular/common";
-import {User} from "../../models/user";
+import { AuthService } from '../../services/Auth.service';
 
 @Component({
   selector: 'app-details-view',
@@ -62,7 +62,8 @@ export class DetailsViewComponent implements OnInit {
     private updateDeleteService: UpdateDeleteAppointmentService,
     private viewAppointmentService: ViewAppointmentService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -118,7 +119,11 @@ export class DetailsViewComponent implements OnInit {
       return;
     }
     this.updateDeleteService.delete(this.appointment).subscribe(() => {
-      this.router.navigate(['/home']);
+      if (this.authService.isAuthenticated()) {
+        this.router.navigate(['/table-view']);
+      } else {
+        this.router.navigate(['/home']);
+      }
     });
   }
 
