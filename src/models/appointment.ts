@@ -1,5 +1,3 @@
-import {User} from "./user";
-
 export class Appointment {
   id?: string;
   title: string;
@@ -15,8 +13,8 @@ export class Appointment {
   constructor() {
     this.id = '';
     this.title = '';
-    this.startDate = new Date;
-    this.endDate = new Date;
+    this.startDate = new Date();
+    this.endDate = new Date();
     this.startTime = '';
     this.endTime = '';
     this.allDay = false;

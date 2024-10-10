@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {MatFormField} from "@angular/material/form-field";
 import {Router} from "@angular/router";
 import {MatButton} from "@angular/material/button";

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DetailsViewComponent } from './details-view.component';
+import {DetailsViewComponent} from './details-view.component';
 
 describe('DetailsViewComponent', () => {
   let component: DetailsViewComponent;

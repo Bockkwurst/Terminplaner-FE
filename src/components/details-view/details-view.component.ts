@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ColorPickerComponent } from '../color-picker/color-picker.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ViewAppointmentService } from '../../services/ViewAppointmentService';
-import { Appointment } from '../../models/appointment';
-import { UpdateDeleteAppointmentService } from '../../services/update-delete-appointment.service';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { MatInputModule } from "@angular/material/input";
-import { MatIconModule } from "@angular/material/icon";
-import { CommonModule } from "@angular/common";
-import { AuthService } from '../../services/Auth.service';
+import {Component, OnInit} from '@angular/core';
+import {ColorPickerComponent} from '../color-picker/color-picker.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ViewAppointmentService} from '../../services/ViewAppointmentService';
+import {Appointment} from '../../models/appointment';
+import {UpdateDeleteAppointmentService} from '../../services/update-delete-appointment.service';
+import {provideNativeDateAdapter} from '@angular/material/core';
+import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
+import {CommonModule} from "@angular/common";
+import {AuthService} from '../../services/Auth.service';
 
 @Component({
   selector: 'app-details-view',
@@ -109,7 +109,7 @@ export class DetailsViewComponent implements OnInit {
     this.appointment.secondaryColor = this.selectedSecondaryColor;
 
     this.updateDeleteService.put(this.appointment).subscribe(() =>
-      this.router.navigate(['/home'])
+      this.router.navigate(['/table-view'])
     );
   }
 
@@ -119,15 +119,11 @@ export class DetailsViewComponent implements OnInit {
       return;
     }
     this.updateDeleteService.delete(this.appointment).subscribe(() => {
-      if (this.authService.isAuthenticated()) {
         this.router.navigate(['/table-view']);
-      } else {
-        this.router.navigate(['/home']);
-      }
     });
   }
 
   onBack() {
-    this.router.navigate(['/home']);
+      this.router.navigate(['/table-view']);
   }
 }

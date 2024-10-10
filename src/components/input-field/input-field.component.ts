@@ -10,7 +10,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {CreateAppointmentService} from "../../services/create-appointment.service";
 import {Appointment} from "../../models/appointment";
 import {ActivatedRoute, Router} from "@angular/router";
-import {User} from "../../models/user";
 import {AuthService} from "../../services/Auth.service";
 
 @Component({

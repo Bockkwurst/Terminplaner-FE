@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
 import {InputFieldComponent} from "../components/input-field/input-field.component";
 import {NavbarComponent} from "../components/navbar/navbar.component";
 

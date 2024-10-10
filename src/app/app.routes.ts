@@ -3,7 +3,6 @@ import {InputFieldComponent} from "../components/input-field/input-field.compone
 import {TableViewComponent} from "../components/table-view/table-view.component";
 import {DetailsViewComponent} from "../components/details-view/details-view.component";
 import {CalendarComponent} from "../components/calendar/calendar.component";
-import {AuthService} from "../services/Auth.service";
 import {AuthGuard} from "../services/AuthGuard";
 import {LoginComponent} from "../components/login/login.component";
 import {RegisterComponent} from "../components/register/register.component";

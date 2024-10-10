@@ -1,12 +1,12 @@
-import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {CalendarEvent, CalendarModule, CalendarUtils, CalendarA11y} from "angular-calendar";
+import {Component, OnInit} from '@angular/core';
+import {CalendarEvent, CalendarModule} from "angular-calendar";
 import {CommonModule} from "@angular/common";
 import {CalendarView} from "@angular/material/datepicker/testing";
 import {ViewAppointmentService} from "../../services/ViewAppointmentService";
 import {Appointment} from "../../models/appointment";
 import {MatButton} from "@angular/material/button";
 import {MatFormField} from "@angular/material/form-field";
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({

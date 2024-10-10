@@ -2,7 +2,7 @@
   <div>
     <h1>Alle Termine auf einem Blick</h1>
   </div>
-  <table mat-table [dataSource]="dataSource" matSort="sort" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="Color">
       <th mat-header-cell *matHeaderCellDef> Color </th>
@@ -32,4 +32,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="navigateToDetails(row.id)"></tr>
   </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 </div>
